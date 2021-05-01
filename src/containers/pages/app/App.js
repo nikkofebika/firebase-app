@@ -5,16 +5,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../login";
 import Dashboard from "../dashboard";
 import Signup from "../signup";
+import { Provider } from "react-redux";
+import { store } from "../../../config/redux";
+import ContohPromise from "../ContohPromise";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Dashboard} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route path="/promise" component={ContohPromise} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
